@@ -1,17 +1,17 @@
-name: 'Path to Docker Image Name'
-description: 'Converts a directory path to a valid docker image name'
+name: 'Find Docker Paths'
+description: 'Finds all the paths with a Dockerfile'
 inputs:
   path:
-    description: 'The path to clean'
-    required: true
-  prefix:
-    description: 'A prefix to remove'
+    description: 'The path to search below'
     required: false
-    default: ''
+    default: '.'
+  changes:
+    description: 'List of changed files to filter by'
+    required: false
+    default: '[]'
 outputs:
-  image-name:
-    description: 'Valid docker image name'
-    value: ${{ steps.clean.outputs.image-name }}
+  filtered-paths:
+    description: 'Filtered paths'
 
 branding:
   icon: 'activity'
