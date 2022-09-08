@@ -10,7 +10,7 @@ try {
   .filter(x => path.basename(x) === 'Dockerfile')
   .filter(x => changes.length === 0 || (changes.indexOf(x) !== -1))
   .map(path.dirname)
-  .map(x => `${inputPath}/${x}`);
+  .map(x => `./${path.join(inputPath, x)}`);
 
   core.setOutput('filtered-paths', JSON.stringify(filteredPaths));
 
