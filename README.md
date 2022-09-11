@@ -1,13 +1,20 @@
 # actions-path-to-docker-image-name
-[GitHub Action](https://github.com/features/actions) to convert a directory path to a valid name.
+[GitHub Action](https://github.com/features/actions) to find directory paths with a Dockerfile (optionally filtered by a list of changes)
 
 ## Example
 ```yaml
-- uses: sleepypikachu/actions-path-to-docker-image-name@v1.0.0
-  id: path-to-docker-image
+- uses: sleepypikachu/actions-find-docker-paths@v1.0.0
+  id: find-docker-paths
   with:
-   path: "./docker/foo/bar"
-   prefix: "./docker"
+    path: foo
+```
+
+With filter:
+```yaml
+- uses: sleepypikachu/actions-find-docker-paths@v1.0.0
+  id: find-docker-paths
+  with:
+    changes: '["./foo/bar/baz/init.sh", "./foo/bar/baz/x.js", "./foo/bar/jag/init.sh"]'
 ```
 
 
